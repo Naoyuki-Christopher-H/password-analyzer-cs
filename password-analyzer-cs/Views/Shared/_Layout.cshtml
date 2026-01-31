@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Password Analyzer</title>
 
+    <!-- Apple-style favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="~/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/favicon-16x16.png">
+
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
@@ -13,31 +18,71 @@
     <link rel="stylesheet" href="~/css/apple-style.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 
-    <link rel="icon" href="~/favicon.ico" type="image/x-icon" />
+    <!-- Apple-style meta tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <style>
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--apple-gray-1);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--apple-gray-2);
+            border-radius: 5px;
+        }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background: var(--apple-gray-3);
+            }
+    </style>
 </head>
 <body class="d-flex flex-column h-100">
+    <!-- Navigation -->
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light py-3">
+        <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container">
-                <a class="navbar-brand fw-bold fs-4" asp-area="" asp-controller="Home" asp-action="Index">
-                    <i class="bi bi-shield-lock-fill text-primary me-2"></i>
-                    Password Analyzer
+                <a class="navbar-brand fw-semibold fs-5 d-flex align-items-center" asp-controller="Home" asp-action="Index">
+                    <div class="bg-primary bg-opacity-10 p-2 rounded-circle me-3">
+                        <i class="bi bi-shield-lock text-primary"></i>
+                    </div>
+                    <span>Password Analyzer</span>
                 </a>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link d-flex align-items-center" asp-controller="Home" asp-action="Index">
+                                <i class="bi bi-house me-2"></i>
+                                Home
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Password" asp-action="Analyze">Analyzer</a>
+                            <a class="nav-link d-flex align-items-center" asp-controller="Password" asp-action="Analyze">
+                                <i class="bi bi-speedometer2 me-2"></i>
+                                Analyzer
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#aboutModal">About</a>
+                            <a class="nav-link d-flex align-items-center" asp-controller="Home" asp-action="Privacy">
+                                <i class="bi bi-shield-check me-2"></i>
+                                Privacy
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center" href="#" data-bs-toggle="modal" data-bs-target="#aboutModal">
+                                <i class="bi bi-info-circle me-2"></i>
+                                About
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -45,41 +90,94 @@
         </nav>
     </header>
 
+    <!-- Main Content -->
     <main class="flex-shrink-0">
         @RenderBody()
     </main>
 
-    <footer class="mt-auto py-4 border-top">
-        <div class="container text-center">
-            <p class="text-muted mb-0">
-                &copy; @DateTime.Now.Year - Password Analyzer. Built with ASP.NET Core MVC.
-                <br>
-                <small>This tool analyzes password strength locally in your browser.</small>
-            </p>
+    <!-- Footer -->
+    <footer class="mt-auto py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="text-center">
+                        <div class="d-flex justify-content-center mb-4">
+                            <div class="bg-primary bg-opacity-10 p-3 rounded-circle me-3">
+                                <i class="bi bi-shield-lock text-primary fs-4"></i>
+                            </div>
+                            <div class="text-start">
+                                <h5 class="fw-semibold mb-1">Password Analyzer</h5>
+                                <p class="text-muted small mb-0">Security through simplicity</p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-wrap justify-content-center gap-4 mb-4">
+                            <a asp-controller="Home" asp-action="Index" class="text-decoration-none text-muted">
+                                Home
+                            </a>
+                            <span class="text-muted">•</span>
+                            <a asp-controller="Password" asp-action="Analyze" class="text-decoration-none text-muted">
+                                Analyzer
+                            </a>
+                            <span class="text-muted">•</span>
+                            <a asp-controller="Home" asp-action="Privacy" class="text-decoration-none text-muted">
+                                Privacy Policy
+                            </a>
+                        </div>
+
+                        <p class="text-muted small">
+                            &copy; @DateTime.Now.Year Password Analyzer. Built with ASP.NET Core MVC.
+                            <br>
+                            <small>No passwords are stored or transmitted. All analysis happens locally.</small>
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
 
     <!-- About Modal -->
-    <div class="modal fade" id="aboutModal" tabindex="-1">
+    <div class="modal fade" id="aboutModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header border-0">
-                    <h5 class="modal-title">About Password Analyzer</h5>
+            <div class="modal-content border-0 shadow-lg">
+                <div class="modal-header border-0 pb-0">
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
-                <div class="modal-body">
-                    <p>
-                        This password analyzer evaluates password strength based on standard security criteria:
-                    </p>
-                    <ul>
-                        <li>Minimum 8 characters</li>
-                        <li>Uppercase and lowercase letters</li>
-                        <li>Numbers and special characters</li>
-                        <li>Avoidance of common passwords</li>
-                    </ul>
-                    <p class="text-muted small">
-                        Note: Passwords are analyzed locally and never stored or transmitted.
-                    </p>
+                <div class="modal-body px-5 pb-5 pt-0">
+                    <div class="text-center mb-4">
+                        <div class="bg-primary bg-opacity-10 p-3 rounded-circle d-inline-block mb-3">
+                            <i class="bi bi-shield-lock text-primary fs-2"></i>
+                        </div>
+                        <h4 class="fw-semibold mb-2">About Password Analyzer</h4>
+                        <p class="text-muted">Secure password strength analysis</p>
+                    </div>
+
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <div class="border-start border-3 border-primary ps-3 py-2">
+                                <h6 class="fw-semibold mb-1">Real-time Analysis</h6>
+                                <p class="text-muted small mb-0">Instant feedback on password strength</p>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="border-start border-3 border-primary ps-3 py-2">
+                                <h6 class="fw-semibold mb-1">No Storage</h6>
+                                <p class="text-muted small mb-0">Passwords are never stored or logged</p>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="border-start border-3 border-primary ps-3 py-2">
+                                <h6 class="fw-semibold mb-1">Industry Standards</h6>
+                                <p class="text-muted small mb-0">Based on NIST password guidelines</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <button class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                            Close
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

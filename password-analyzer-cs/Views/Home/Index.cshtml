@@ -1,63 +1,196 @@
 ﻿@{
-    ViewData["Title"] = "Password Analyzer";
+    ViewData["Title"] = "Password Analyzer - Secure Password Strength Check";
 }
 
-<div class="text-center py-5">
-    <div class="container">
-        <h1 class="display-4 mb-4 fw-light">Password Security Analyzer</h1>
-        <p class="lead mb-5">
-            Check your password strength and improve your online security instantly.
-            Our analyzer evaluates passwords based on industry-standard security criteria.
-        </p>
+<div class="container py-5">
+    <!-- Hero Section -->
+    <div class="row justify-content-center mb-5">
+        <div class="col-lg-10 text-center">
+            <div class="mb-5">
+                <div class="bg-primary bg-opacity-10 p-4 rounded-circle d-inline-block mb-4">
+                    <i class="bi bi-shield-lock text-primary display-4"></i>
+                </div>
+                <h1 class="display-4 fw-bold mb-4">Password Security Analyzer</h1>
+                <p class="lead text-muted mb-5">
+                    Check your password strength instantly with our secure,
+                    privacy-focused analyzer. Get actionable feedback to improve
+                    your online security.
+                </p>
+                <a asp-controller="Password" asp-action="Analyze"
+                   class="btn btn-dark btn-lg px-5 py-3 shadow-sm">
+                    <i class="bi bi-speedometer2 me-2"></i>
+                    Start Password Analysis
+                </a>
+            </div>
+        </div>
+    </div>
 
-        <div class="row justify-content-center mb-5">
-            <div class="col-md-8">
-                <div class="card border-0 shadow-sm">
-                    <div class="card-body p-5">
-                        <h3 class="mb-4">How It Works</h3>
-                        <div class="row text-start">
-                            <div class="col-md-6 mb-3">
-                                <div class="d-flex align-items-start">
-                                    <div class="bg-primary bg-opacity-10 p-2 rounded me-3">
-                                        <i class="bi bi-key fs-4 text-primary"></i>
-                                    </div>
-                                    <div>
-                                        <h5>Enter Password</h5>
-                                        <p class="text-muted">Type your password in the secure analyzer</p>
-                                    </div>
+    <!-- Features Grid -->
+    <div class="row g-4 mb-5">
+        <div class="col-md-4">
+            <div class="card border-0 h-100">
+                <div class="card-body p-4 text-center">
+                    <div class="bg-primary bg-opacity-10 p-3 rounded-circle d-inline-block mb-4">
+                        <i class="bi bi-shield-check text-primary fs-3"></i>
+                    </div>
+                    <h4 class="fw-semibold mb-3">Real-time Analysis</h4>
+                    <p class="text-muted">
+                        Instant feedback on password strength with detailed breakdown
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 h-100">
+                <div class="card-body p-4 text-center">
+                    <div class="bg-success bg-opacity-10 p-3 rounded-circle d-inline-block mb-4">
+                        <i class="bi bi-lock text-success fs-3"></i>
+                    </div>
+                    <h4 class="fw-semibold mb-3">Complete Privacy</h4>
+                    <p class="text-muted">
+                        No passwords stored or transmitted. All analysis happens locally
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 h-100">
+                <div class="card-body p-4 text-center">
+                    <div class="bg-warning bg-opacity-10 p-3 rounded-circle d-inline-block mb-4">
+                        <i class="bi bi-graph-up text-warning fs-3"></i>
+                    </div>
+                    <h4 class="fw-semibold mb-3">Smart Scoring</h4>
+                    <p class="text-muted">
+                        Industry-standard scoring algorithm with actionable recommendations
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- How It Works -->
+    <div class="row justify-content-center mb-5">
+        <div class="col-lg-10">
+            <div class="card border-0 shadow-subtle">
+                <div class="card-body p-5">
+                    <h2 class="text-center mb-5 fw-semibold">How Password Analysis Works</h2>
+                    <div class="row g-4">
+                        <div class="col-md-3 text-center">
+                            <div class="position-relative mb-3">
+                                <div class="bg-primary bg-opacity-10 p-3 rounded-circle">
+                                    <i class="bi bi-key text-primary fs-2"></i>
+                                </div>
+                                <div class="position-absolute top-0 start-100 translate-middle">
+                                    <span class="badge bg-primary rounded-circle">1</span>
                                 </div>
                             </div>
-                            <div class="col-md-6 mb-3">
-                                <div class="d-flex align-items-start">
-                                    <div class="bg-success bg-opacity-10 p-2 rounded me-3">
-                                        <i class="bi bi-graph-up fs-4 text-success"></i>
-                                    </div>
-                                    <div>
-                                        <h5>Instant Analysis</h5>
-                                        <p class="text-muted">Get immediate feedback on password strength</p>
-                                    </div>
+                            <h5 class="fw-semibold mb-2">Enter Password</h5>
+                            <p class="text-muted small">Type your password securely</p>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <div class="position-relative mb-3">
+                                <div class="bg-primary bg-opacity-10 p-3 rounded-circle">
+                                    <i class="bi bi-cpu text-primary fs-2"></i>
+                                </div>
+                                <div class="position-absolute top-0 start-100 translate-middle">
+                                    <span class="badge bg-primary rounded-circle">2</span>
                                 </div>
                             </div>
-                            <div class="col-md-6 mb-3">
-                                <div class="d-flex align-items-start">
-                                    <div class="bg-info bg-opacity-10 p-2 rounded me-3">
-                                        <i class="bi bi-check-circle fs-4 text-info"></i>
-                                    </div>
-                                    <div>
-                                        <h5>Security Criteria</h5>
-                                        <p class="text-muted">Check against 8+ character requirements</p>
-                                    </div>
+                            <h5 class="fw-semibold mb-2">Secure Analysis</h5>
+                            <p class="text-muted small">Real-time strength evaluation</p>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <div class="position-relative mb-3">
+                                <div class="bg-primary bg-opacity-10 p-3 rounded-circle">
+                                    <i class="bi bi-clipboard-data text-primary fs-2"></i>
+                                </div>
+                                <div class="position-absolute top-0 start-100 translate-middle">
+                                    <span class="badge bg-primary rounded-circle">3</span>
                                 </div>
                             </div>
-                            <div class="col-md-6 mb-3">
-                                <div class="d-flex align-items-start">
-                                    <div class="bg-warning bg-opacity-10 p-2 rounded me-3">
-                                        <i class="bi bi-shield-check fs-4 text-warning"></i>
-                                    </div>
-                                    <div>
-                                        <h5>Get Recommendations</h5>
-                                        <p class="text-muted">Receive tips to improve password security</p>
-                                    </div>
+                            <h5 class="fw-semibold mb-2">Get Results</h5>
+                            <p class="text-muted small">Detailed strength report</p>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <div class="position-relative mb-3">
+                                <div class="bg-primary bg-opacity-10 p-3 rounded-circle">
+                                    <i class="bi bi-lightbulb text-primary fs-2"></i>
+                                </div>
+                                <div class="position-absolute top-0 start-100 translate-middle">
+                                    <span class="badge bg-primary rounded-circle">4</span>
+                                </div>
+                            </div>
+                            <h5 class="fw-semibold mb-2">Improve Security</h5>
+                            <p class="text-muted small">Actionable recommendations</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Security Tips -->
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card border-0 bg-light">
+                <div class="card-body p-5">
+                    <h2 class="text-center mb-4 fw-semibold">Password Security Guidelines</h2>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-start mb-3">
+                                <div class="bg-success bg-opacity-10 p-2 rounded me-3">
+                                    <i class="bi bi-check-lg text-success"></i>
+                                </div>
+                                <div>
+                                    <h5 class="fw-semibold mb-1">Use 12+ Characters</h5>
+                                    <p class="text-muted small">Longer passwords are exponentially more secure</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-start mb-3">
+                                <div class="bg-success bg-opacity-10 p-2 rounded me-3">
+                                    <i class="bi bi-check-lg text-success"></i>
+                                </div>
+                                <div>
+                                    <h5 class="fw-semibold mb-1">Character Variety</h5>
+                                    <p class="text-muted small">Mix uppercase, lowercase, numbers, and symbols</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-start mb-3">
+                                <div class="bg-success bg-opacity-10 p-2 rounded me-3">
+                                    <i class="bi bi-check-lg text-success"></i>
+                                </div>
+                                <div>
+                                    <h5 class="fw-semibold mb-1">Avoid Common Patterns</h5>
+                                    <p class="text-muted small">Don't use sequential numbers or keyboard patterns</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-start mb-3">
+                                <div class="bg-success bg-opacity-10 p-2 rounded me-3">
+                                    <i class="bi bi-check-lg text-success"></i>
+                                </div>
+                                <div>
+                                    <h5 class="fw-semibold mb-1">Unique Passwords</h5>
+                                    <p class="text-muted small">Use different passwords for different accounts</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-start mb-3">
+                                <div class="bg-success bg-opacity-10 p-2 rounded me-3">
+                                    <i class="bi bi-check-lg text-success"></i>
+                                </div>
+                                <div>
+                                    <h5 class="fw-semibold mb-1">Password Managers</h5>
+                                    <p class="text-muted small">Consider using a trusted password manager</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-start mb-3">
+                                <div class="bg-success bg-opacity-10 p-2 rounded me-3">
+                                    <i class="bi bi-check-lg text-success"></i>
+                                </div>
+                                <div>
+                                    <h5 class="fw-semibold mb-1">Regular Updates</h5>
+                                    <p class="text-muted small">Change passwords periodically for critical accounts</p>
                                 </div>
                             </div>
                         </div>
@@ -65,24 +198,24 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
 
-        <a asp-controller="Password" asp-action="Analyze" class="btn btn-dark btn-lg px-5 py-3">
-            <i class="bi bi-shield-check me-2"></i>
-            Start Analyzing
-        </a>
-
-        <div class="mt-5">
-            <h4 class="mb-3">Password Security Tips</h4>
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <ul class="list-unstyled text-start">
-                        <li class="mb-2"><i class="bi bi-check text-success me-2"></i> Use at least 12 characters</li>
-                        <li class="mb-2"><i class="bi bi-check text-success me-2"></i> Mix uppercase and lowercase letters</li>
-                        <li class="mb-2"><i class="bi bi-check text-success me-2"></i> Include numbers and special characters</li>
-                        <li class="mb-2"><i class="bi bi-check text-success me-2"></i> Avoid common words and patterns</li>
-                        <li class="mb-2"><i class="bi bi-check text-success me-2"></i> Use unique passwords for different accounts</li>
-                    </ul>
-                </div>
+<!-- Call to Action -->
+<div class="bg-dark text-white py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2 class="fw-semibold mb-4">Ready to Secure Your Passwords?</h2>
+                <p class="lead mb-5 opacity-75">
+                    Start analyzing your passwords now with our secure, privacy-focused tool.
+                    No registration required. No data stored.
+                </p>
+                <a asp-controller="Password" asp-action="Analyze"
+                   class="btn btn-light btn-lg px-5 py-3">
+                    <i class="bi bi-shield-check me-2"></i>
+                    Analyze Password Now
+                </a>
             </div>
         </div>
     </div>
