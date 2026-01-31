@@ -1,17 +1,19 @@
-using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using password_analyzer_cs.Models;
+using System.Diagnostics;
 
 namespace password_analyzer_cs.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private readonly ILogger<HomeController> _logger;
+
+        public HomeController(ILogger<HomeController> logger)
         {
-            return View();
+            _logger = logger;
         }
 
-        public IActionResult Privacy()
+        public IActionResult Index()
         {
             return View();
         }

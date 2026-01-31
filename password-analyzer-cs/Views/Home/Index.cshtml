@@ -1,8 +1,89 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Password Analyzer";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="text-center py-5">
+    <div class="container">
+        <h1 class="display-4 mb-4 fw-light">Password Security Analyzer</h1>
+        <p class="lead mb-5">
+            Check your password strength and improve your online security instantly.
+            Our analyzer evaluates passwords based on industry-standard security criteria.
+        </p>
+
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-5">
+                        <h3 class="mb-4">How It Works</h3>
+                        <div class="row text-start">
+                            <div class="col-md-6 mb-3">
+                                <div class="d-flex align-items-start">
+                                    <div class="bg-primary bg-opacity-10 p-2 rounded me-3">
+                                        <i class="bi bi-key fs-4 text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h5>Enter Password</h5>
+                                        <p class="text-muted">Type your password in the secure analyzer</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="d-flex align-items-start">
+                                    <div class="bg-success bg-opacity-10 p-2 rounded me-3">
+                                        <i class="bi bi-graph-up fs-4 text-success"></i>
+                                    </div>
+                                    <div>
+                                        <h5>Instant Analysis</h5>
+                                        <p class="text-muted">Get immediate feedback on password strength</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="d-flex align-items-start">
+                                    <div class="bg-info bg-opacity-10 p-2 rounded me-3">
+                                        <i class="bi bi-check-circle fs-4 text-info"></i>
+                                    </div>
+                                    <div>
+                                        <h5>Security Criteria</h5>
+                                        <p class="text-muted">Check against 8+ character requirements</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="d-flex align-items-start">
+                                    <div class="bg-warning bg-opacity-10 p-2 rounded me-3">
+                                        <i class="bi bi-shield-check fs-4 text-warning"></i>
+                                    </div>
+                                    <div>
+                                        <h5>Get Recommendations</h5>
+                                        <p class="text-muted">Receive tips to improve password security</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a asp-controller="Password" asp-action="Analyze" class="btn btn-dark btn-lg px-5 py-3">
+            <i class="bi bi-shield-check me-2"></i>
+            Start Analyzing
+        </a>
+
+        <div class="mt-5">
+            <h4 class="mb-3">Password Security Tips</h4>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <ul class="list-unstyled text-start">
+                        <li class="mb-2"><i class="bi bi-check text-success me-2"></i> Use at least 12 characters</li>
+                        <li class="mb-2"><i class="bi bi-check text-success me-2"></i> Mix uppercase and lowercase letters</li>
+                        <li class="mb-2"><i class="bi bi-check text-success me-2"></i> Include numbers and special characters</li>
+                        <li class="mb-2"><i class="bi bi-check text-success me-2"></i> Avoid common words and patterns</li>
+                        <li class="mb-2"><i class="bi bi-check text-success me-2"></i> Use unique passwords for different accounts</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
